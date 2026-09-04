@@ -2,6 +2,8 @@
 
 把自然语言描述编译成经过验证、可版本化、可探索的 3D 世界。
 
+*A prompt-to-3D system that compiles natural-language descriptions into validated, versioned, and explorable worlds.*
+
 ## 版本与进度
 
 - 当前版本：**3.0.0（V3）**
