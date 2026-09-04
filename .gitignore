@@ -13,6 +13,7 @@ backend/**/__pycache__/
 backend/.pytest_cache/
 backend/.coverage
 *.py[cod]
+*.egg-info/
 
 # Node
 frontend/node_modules/
@@ -25,3 +26,4 @@ frontend/coverage/
 *.log
 *.sqlite3
 screenshots/
+backups/
