@@ -1,0 +1,337 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "scene_cyberpunk_alley",
+  "title": "雨夜拉面巷",
+  "seed": 184726,
+  "units": "meters",
+  "environment": {
+    "sky": "night",
+    "background": "#06070d",
+    "fog": {
+      "type": "exponential",
+      "color": "#0b0d17",
+      "density": 0.028,
+      "near": 1,
+      "far": 90
+    },
+    "ambientLight": {
+      "color": "#49507a",
+      "intensity": 0.42
+    },
+    "toneMapping": "acesFilmic",
+    "exposure": 1.12,
+    "postprocessing": {
+      "bloom": {
+        "enabled": true,
+        "intensity": 0.85,
+        "threshold": 0.7
+      }
+    }
+  },
+  "camera": {
+    "mode": "firstPerson",
+    "position": [0, 1.7, 9],
+    "lookAt": [0, 1.6, -5],
+    "fov": 66,
+    "near": 0.1,
+    "far": 160,
+    "movement": {
+      "speed": 3.6,
+      "sprintMultiplier": 1.8,
+      "eyeHeight": 1.7
+    }
+  },
+  "nodes": [
+    {
+      "id": "road_main",
+      "kind": "primitive",
+      "subtype": "plane",
+      "parentId": null,
+      "transform": { "position": [0, 0, -7], "rotation": [-1.570796, 0, 0], "scale": [7.2, 36, 1] },
+      "material": { "type": "standard", "color": "#11131b", "roughness": 0.34, "metalness": 0.22, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "road", "tags": ["wet", "alley", "asphalt"] },
+      "collision": { "mode": "ground" }
+    },
+    {
+      "id": "sidewalk_left",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [-4.15, 0.12, -7], "rotation": [0, 0, 0], "scale": [1.1, 0.24, 36] },
+      "material": { "type": "standard", "color": "#282832", "roughness": 0.76, "metalness": 0.06, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "sidewalk", "tags": ["concrete", "wet"] },
+      "collision": { "mode": "ground" }
+    },
+    {
+      "id": "sidewalk_right",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [4.15, 0.12, -7], "rotation": [0, 0, 0], "scale": [1.1, 0.24, 36] },
+      "material": { "type": "standard", "color": "#282832", "roughness": 0.76, "metalness": 0.06, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "sidewalk", "tags": ["concrete", "wet"] },
+      "collision": { "mode": "ground" }
+    },
+    {
+      "id": "building_left_front",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [-6, 3.6, 1], "rotation": [0, 0, 0], "scale": [3.2, 7.2, 9] },
+      "material": { "type": "standard", "color": "#191922", "roughness": 0.82, "metalness": 0.08, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "building", "tags": ["ramen_shop", "japanese", "cyberpunk"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "building_left_back",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [-6.2, 4.8, -10], "rotation": [0, 0, 0], "scale": [3.6, 9.6, 12] },
+      "material": { "type": "standard", "color": "#14151d", "roughness": 0.9, "metalness": 0.04, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "building", "tags": ["apartments", "dense"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "building_right_front",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [6, 4.2, 0], "rotation": [0, 0, 0], "scale": [3.2, 8.4, 11] },
+      "material": { "type": "standard", "color": "#202027", "roughness": 0.78, "metalness": 0.12, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "building", "tags": ["izakaya", "cyberpunk"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "building_right_back",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [6.4, 5.5, -12], "rotation": [0, 0, 0], "scale": [4, 11, 13] },
+      "material": { "type": "standard", "color": "#15161c", "roughness": 0.88, "metalness": 0.07, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "building", "tags": ["tower", "japanese"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "ramen_front",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [-4.32, 1.25, 1.2], "rotation": [0, 0, 0], "scale": [0.18, 2.5, 5.4] },
+      "material": { "type": "standard", "color": "#4b2730", "roughness": 0.48, "metalness": 0.15, "opacity": 1, "transparent": false, "emissive": "#6d243c", "emissiveIntensity": 0.25 },
+      "semantics": { "category": "shopfront", "tags": ["ramen", "warm"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "ramen_counter",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [-3.95, 0.75, 1], "rotation": [0, 0, 0], "scale": [0.85, 1.25, 4.1] },
+      "material": { "type": "standard", "color": "#5a392b", "roughness": 0.66, "metalness": 0.02, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "counter", "tags": ["wood", "ramen"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "ramen_awning",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [-3.7, 2.55, 1], "rotation": [0, 0, -0.12], "scale": [1.45, 0.14, 5.8] },
+      "material": { "type": "standard", "color": "#8f244c", "roughness": 0.54, "metalness": 0.03, "opacity": 1, "transparent": false, "emissive": "#9c2754", "emissiveIntensity": 0.38 },
+      "semantics": { "category": "awning", "tags": ["fabric", "pink"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "right_shopfront",
+      "kind": "primitive",
+      "subtype": "box",
+      "parentId": null,
+      "transform": { "position": [4.34, 1.55, -2.2], "rotation": [0, 0, 0], "scale": [0.2, 3.1, 5.5] },
+      "material": { "type": "standard", "color": "#11353b", "roughness": 0.38, "metalness": 0.3, "opacity": 1, "transparent": false, "emissive": "#0e5360", "emissiveIntensity": 0.35 },
+      "semantics": { "category": "shopfront", "tags": ["bar", "cyan"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "window_left_one",
+      "kind": "primitive",
+      "subtype": "plane",
+      "parentId": null,
+      "transform": { "position": [-4.37, 4.7, 2.5], "rotation": [0, 1.570796, 0], "scale": [1.5, 1.1, 1] },
+      "material": { "type": "standard", "color": "#ffb36b", "roughness": 0.16, "metalness": 0.1, "opacity": 0.9, "transparent": true, "emissive": "#ff7048", "emissiveIntensity": 2.6 },
+      "semantics": { "category": "window", "tags": ["warm", "lit"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "window_left_two",
+      "kind": "primitive",
+      "subtype": "plane",
+      "parentId": null,
+      "transform": { "position": [-4.37, 4.7, -0.2], "rotation": [0, 1.570796, 0], "scale": [1.5, 1.1, 1] },
+      "material": { "type": "standard", "color": "#ffb36b", "roughness": 0.16, "metalness": 0.1, "opacity": 0.86, "transparent": true, "emissive": "#ff7048", "emissiveIntensity": 2.3 },
+      "semantics": { "category": "window", "tags": ["warm", "lit"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "window_right_one",
+      "kind": "primitive",
+      "subtype": "plane",
+      "parentId": null,
+      "transform": { "position": [4.37, 4.8, 1.2], "rotation": [0, -1.570796, 0], "scale": [1.6, 1.2, 1] },
+      "material": { "type": "standard", "color": "#36d7e8", "roughness": 0.14, "metalness": 0.18, "opacity": 0.82, "transparent": true, "emissive": "#22b8cf", "emissiveIntensity": 2.4 },
+      "semantics": { "category": "window", "tags": ["cool", "lit"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "ramen_sign",
+      "kind": "text",
+      "subtype": "label",
+      "parentId": null,
+      "transform": { "position": [-3.48, 3.7, 1], "rotation": [0, 1.570796, 0], "scale": [1, 1, 1] },
+      "text": { "value": "RAMEN", "fontSize": 0.62, "align": "center" },
+      "material": { "type": "standard", "color": "#ff4f86", "roughness": 0.22, "metalness": 0.05, "opacity": 1, "transparent": true, "emissive": "#ff3f78", "emissiveIntensity": 5.4 },
+      "semantics": { "category": "sign", "tags": ["neon", "ramen", "pink"] }
+    },
+    {
+      "id": "izakaya_sign",
+      "kind": "text",
+      "subtype": "label",
+      "parentId": null,
+      "transform": { "position": [3.48, 3.2, -2.2], "rotation": [0, -1.570796, 0], "scale": [1, 1, 1] },
+      "text": { "value": "居酒屋", "fontSize": 0.62, "align": "center" },
+      "material": { "type": "standard", "color": "#42e8f5", "roughness": 0.2, "metalness": 0.06, "opacity": 1, "transparent": true, "emissive": "#22d3ee", "emissiveIntensity": 5.1 },
+      "semantics": { "category": "sign", "tags": ["neon", "japanese", "cyan"] }
+    },
+    {
+      "id": "vertical_sign",
+      "kind": "text",
+      "subtype": "label",
+      "parentId": null,
+      "transform": { "position": [4.05, 5.2, -6.3], "rotation": [0, -1.570796, 1.570796], "scale": [0.95, 0.95, 0.95] },
+      "text": { "value": "ラーメン", "fontSize": 0.54, "align": "center" },
+      "material": { "type": "standard", "color": "#f8d36b", "roughness": 0.26, "metalness": 0.03, "opacity": 1, "transparent": true, "emissive": "#ffbd4a", "emissiveIntensity": 4.2 },
+      "semantics": { "category": "sign", "tags": ["vertical", "japanese", "amber"] }
+    },
+    {
+      "id": "lamp_pole_left",
+      "kind": "primitive",
+      "subtype": "cylinder",
+      "parentId": null,
+      "transform": { "position": [-3.2, 2.25, -4.8], "rotation": [0, 0, 0], "scale": [0.12, 4.5, 0.12] },
+      "material": { "type": "standard", "color": "#32343e", "roughness": 0.5, "metalness": 0.76, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "street_light", "tags": ["metal", "pole"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "lamp_head_left",
+      "kind": "primitive",
+      "subtype": "sphere",
+      "parentId": null,
+      "transform": { "position": [-3.2, 4.35, -4.8], "rotation": [0, 0, 0], "scale": [0.38, 0.3, 0.38] },
+      "material": { "type": "standard", "color": "#ff8ab3", "roughness": 0.18, "metalness": 0.02, "opacity": 0.95, "transparent": true, "emissive": "#ff477e", "emissiveIntensity": 5.8 },
+      "semantics": { "category": "lamp", "tags": ["pink", "glow"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "lamp_pole_right",
+      "kind": "primitive",
+      "subtype": "cylinder",
+      "parentId": null,
+      "transform": { "position": [3.15, 2.15, 3.7], "rotation": [0, 0, 0], "scale": [0.11, 4.3, 0.11] },
+      "material": { "type": "standard", "color": "#353743", "roughness": 0.5, "metalness": 0.74, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "street_light", "tags": ["metal", "pole"] },
+      "collision": { "mode": "solid" }
+    },
+    {
+      "id": "lamp_head_right",
+      "kind": "primitive",
+      "subtype": "sphere",
+      "parentId": null,
+      "transform": { "position": [3.15, 4.15, 3.7], "rotation": [0, 0, 0], "scale": [0.36, 0.29, 0.36] },
+      "material": { "type": "standard", "color": "#65ecf5", "roughness": 0.16, "metalness": 0.02, "opacity": 0.95, "transparent": true, "emissive": "#25d7e5", "emissiveIntensity": 5.2 },
+      "semantics": { "category": "lamp", "tags": ["cyan", "glow"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "pipe_overhead_one",
+      "kind": "primitive",
+      "subtype": "cylinder",
+      "parentId": null,
+      "transform": { "position": [0, 6.4, -4], "rotation": [0, 0, 1.570796], "scale": [0.1, 9, 0.1] },
+      "material": { "type": "standard", "color": "#353640", "roughness": 0.48, "metalness": 0.72, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "pipe", "tags": ["overhead", "industrial"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "pipe_overhead_two",
+      "kind": "primitive",
+      "subtype": "cylinder",
+      "parentId": null,
+      "transform": { "position": [0, 7.1, -8.5], "rotation": [0, 0, 1.570796], "scale": [0.08, 9, 0.08] },
+      "material": { "type": "standard", "color": "#2f3038", "roughness": 0.5, "metalness": 0.7, "opacity": 1, "transparent": false, "emissive": null, "emissiveIntensity": 0 },
+      "semantics": { "category": "pipe", "tags": ["overhead", "industrial"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "puddle_front",
+      "kind": "primitive",
+      "subtype": "plane",
+      "parentId": null,
+      "transform": { "position": [0.8, 0.018, 3.2], "rotation": [-1.570796, 0, 0.12], "scale": [2.1, 3.5, 1] },
+      "material": { "type": "standard", "color": "#17293b", "roughness": 0.08, "metalness": 0.58, "opacity": 0.72, "transparent": true, "emissive": "#1c4d60", "emissiveIntensity": 0.22 },
+      "semantics": { "category": "puddle", "tags": ["water", "reflection"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "puddle_back",
+      "kind": "primitive",
+      "subtype": "plane",
+      "parentId": null,
+      "transform": { "position": [-0.7, 0.019, -7.8], "rotation": [-1.570796, 0, -0.2], "scale": [1.8, 4.2, 1] },
+      "material": { "type": "standard", "color": "#2c1a32", "roughness": 0.09, "metalness": 0.54, "opacity": 0.68, "transparent": true, "emissive": "#61284d", "emissiveIntensity": 0.18 },
+      "semantics": { "category": "puddle", "tags": ["water", "reflection"] },
+      "collision": { "mode": "none" }
+    },
+    {
+      "id": "pink_key_light",
+      "kind": "light",
+      "subtype": "point",
+      "parentId": null,
+      "transform": { "position": [-2.8, 3.6, 1], "rotation": [0, 0, 0], "scale": [1, 1, 1] },
+      "light": { "color": "#ff477e", "intensity": 30, "range": 10, "decay": 2, "castShadow": true },
+      "semantics": { "category": "shop_light", "tags": ["pink", "neon"] }
+    },
+    {
+      "id": "cyan_key_light",
+      "kind": "light",
+      "subtype": "point",
+      "parentId": null,
+      "transform": { "position": [2.8, 3.8, -2.5], "rotation": [0, 0, 0], "scale": [1, 1, 1] },
+      "light": { "color": "#22d3ee", "intensity": 29, "range": 11, "decay": 2, "castShadow": true },
+      "semantics": { "category": "shop_light", "tags": ["cyan", "neon"] }
+    },
+    {
+      "id": "warm_shop_light",
+      "kind": "light",
+      "subtype": "point",
+      "parentId": null,
+      "transform": { "position": [-3.2, 2.3, -1.5], "rotation": [0, 0, 0], "scale": [1, 1, 1] },
+      "light": { "color": "#ff9f66", "intensity": 18, "range": 7, "decay": 2, "castShadow": false },
+      "semantics": { "category": "interior_light", "tags": ["warm", "ramen"] }
+    },
+    {
+      "id": "alley_fill_light",
+      "kind": "light",
+      "subtype": "point",
+      "parentId": null,
+      "transform": { "position": [0, 4.6, -10], "rotation": [0, 0, 0], "scale": [1, 1, 1] },
+      "light": { "color": "#6f66ff", "intensity": 14, "range": 13, "decay": 2, "castShadow": false },
+      "semantics": { "category": "alley_light", "tags": ["violet", "depth"] }
+    }
+  ],
+  "metadata": {
+    "generator": "prompt-compiler",
+    "promptLanguage": "en"
+  },
+  "extensions": {}
+}

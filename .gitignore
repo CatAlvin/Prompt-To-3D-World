@@ -1,0 +1,27 @@
+# Secrets
+.env
+.env.*
+!.env.example
+Kimi k3 API Key.txt
+MySQL Root User Password.txt
+
+# Python
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/.coverage
+*.py[cod]
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+
+# Tooling and local data
+.idea/
+.vscode/
+*.log
+*.sqlite3
+screenshots/

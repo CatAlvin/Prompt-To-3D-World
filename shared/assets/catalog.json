@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    { "id": "asset_paper_lantern_v1", "category": "lantern", "source": "builtin", "license": "project-owned", "fallback": "sphere", "triangles": 0, "materials": 1 },
+    { "id": "asset_street_lamp_v1", "category": "street_light", "source": "builtin", "license": "project-owned", "fallback": "cylinder", "triangles": 0, "materials": 1 },
+    { "id": "asset_wood_crate_v1", "category": "crate", "source": "builtin", "license": "project-owned", "fallback": "box", "triangles": 0, "materials": 1 },
+    { "id": "asset_rock_v1", "category": "rock", "source": "builtin", "license": "project-owned", "fallback": "sphere", "triangles": 0, "materials": 1 },
+    { "id": "asset_shrub_v1", "category": "vegetation", "source": "builtin", "license": "project-owned", "fallback": "sphere", "triangles": 0, "materials": 1 },
+    { "id": "asset_lunar_antenna_v1", "category": "antenna", "source": "builtin", "license": "project-owned", "fallback": "cylinder", "triangles": 0, "materials": 1 }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "version": "3.0.0",
+  "categories": [
+    {
+      "id": "deep_space",
+      "expectedMode": "orbital",
+      "prompts": [
+        "A bright star beside a pulsar, with a distant black hole and a field of stars.",
+        "在浩瀚宇宙中，前方是一颗恒星，旁边是一颗脉冲星，远处有黑洞和群星。",
+        "A lonely planet orbiting a bright star under a dense starfield.",
+        "A pulsar flashes near a blue planet while a black hole waits far away.",
+        "耀眼恒星照亮一颗行星，远处黑洞被繁星环绕。",
+        "A cinematic star and neutron pulsar suspended in a silent field of stars.",
+        "黑洞、脉冲星与一颗明亮恒星构成的深空景象。",
+        "A massive planet below a bright sun with distant stars.",
+        "群星背景中，一颗恒星与脉冲星彼此靠近。",
+        "A distant black hole beside a planet and a brilliant starfield."
+      ]
+    },
+    {
+      "id": "lunar_research",
+      "expectedMode": "orbital",
+      "prompts": [
+        "A quiet lunar research station above a blue crater at sunrise.",
+        "月球研究站位于蓝色陨石坑上方，远处太阳正在升起。",
+        "A moonbase overlooking a crater with one antenna.",
+        "A research station on the moon beside a deep crater.",
+        "月面科研站、环形山与一组天线。",
+        "A lunar station with a solar array near a cobalt crater.",
+        "清晨的月球研究站和巨大的月坑。",
+        "A compact moon research base beneath the Earth.",
+        "月面实验站上方有天线，旁边是蓝色陨石坑。",
+        "A silent lunar habitat beside a crater and solar panels."
+      ]
+    },
+    {
+      "id": "urban_alley",
+      "expectedMode": "walkable",
+      "prompts": [
+        "A small cyberpunk Japanese alley at night with ramen shops and neon signs.",
+        "雨夜拉面小巷，两侧是霓虹招牌和路灯。",
+        "A narrow alley with one ramen shop and a cyan neon sign.",
+        "东京雨夜街道，湿润路面映出霓虹灯。",
+        "A neon lane with tiny shops and street lights.",
+        "深夜小巷里的拉面店和红色霓虹招牌。",
+        "A wet city street lined with noodle shops.",
+        "赛博朋克街道、霓虹、路灯与湿路面。",
+        "A quiet ramen alley after rain with glowing signs.",
+        "狭窄街巷尽头是一家亮着灯的拉面店。"
+      ]
+    },
+    {
+      "id": "interior",
+      "expectedMode": "interior",
+      "prompts": [
+        "A quiet library room with bookshelves, a table and a warm lamp.",
+        "安静的图书馆室内，有书架、书桌和窗户。",
+        "A cozy reading room with a desk beside the window.",
+        "暖光房间里摆着桌子、台灯和书架。",
+        "An interior library with tall bookcases.",
+        "小型藏书室，窗边有一张书桌。",
+        "A cabin room with a lamp, table and window.",
+        "室内阅读空间，两侧是书架。",
+        "A warm room with one bookshelf and a glowing lamp.",
+        "图书馆房间中央是一张长桌。"
+      ]
+    },
+    {
+      "id": "misty_nature",
+      "expectedMode": "walkable",
+      "prompts": [
+        "A misty forest path with trees and rocks.",
+        "雾林中的石径、松树与岩石。",
+        "A forest shrine with a torii gate and old trees.",
+        "森林小路通向一座鸟居。",
+        "A woodland trail surrounded by rocks and pine trees.",
+        "薄雾中的树林与石头小路。",
+        "A quiet forest with one shrine gate.",
+        "松树林、岩石和蜿蜒石径。",
+        "A natural woodland path in soft mist.",
+        "神社鸟居立在森林小路尽头。"
+      ]
+    },
+    {
+      "id": "desert",
+      "expectedMode": "walkable",
+      "prompts": [
+        "A desert outpost among wind-shaped dunes.",
+        "沙漠前哨站坐落在连绵沙丘之间。",
+        "A lonely outpost in a wide wasteland.",
+        "荒漠驿站与三座沙丘。",
+        "A sunset desert with a small signal outpost.",
+        "风沙中的前哨站和沙丘小路。",
+        "A compact desert base beyond the dunes.",
+        "广阔沙漠里只有一座驿站。",
+        "An isolated outpost on a warm sandy plain.",
+        "沙丘后方是一座亮着灯的前哨站。"
+      ]
+    },
+    {
+      "id": "historic",
+      "expectedMode": "walkable",
+      "prompts": [
+        "An old town lane with lanterns and a stone gateway.",
+        "古镇老街挂满灯笼，尽头是一座牌坊。",
+        "A historic town with a gate and warm lanterns.",
+        "安静古城街道与一排红灯笼。",
+        "An ancient town entrance under evening light.",
+        "古镇城门旁挂着几盏灯笼。",
+        "A narrow old town street leading to an archway.",
+        "灯火老街与石头入口。",
+        "A historic riverside town with lanterns.",
+        "夜晚古城中一座牌坊横跨街道。"
+      ]
+    },
+    {
+      "id": "underwater",
+      "expectedMode": "flythrough",
+      "prompts": [
+        "An underwater research station in a dark blue ocean.",
+        "深海中的水下研究站。",
+        "An undersea lab surrounded by open water.",
+        "海底实验室悬浮在蓝色海洋中。",
+        "A compact underwater station with glowing windows.",
+        "水下研究站外是一片安静海洋。",
+        "An undersea laboratory in clear blue water.",
+        "深海实验站和远处的水面微光。",
+        "A silent underwater base below the sea.",
+        "海洋深处有一座小型研究站。"
+      ]
+    },
+    {
+      "id": "floating_island",
+      "expectedMode": "flythrough",
+      "prompts": [
+        "A floating island above soft clouds.",
+        "云层上方漂浮着一座小岛。",
+        "A sky island surrounded by a sea of clouds.",
+        "一座浮岛穿过清晨云海。",
+        "A lonely floating island in bright clouds.",
+        "空中岛屿下方是厚厚云层。",
+        "A green sky island above distant clouds.",
+        "云海中有三座漂浮岛屿。",
+        "A floating island at sunset with clouds below.",
+        "高空浮岛被白色云层环绕。"
+      ]
+    },
+    {
+      "id": "abstract",
+      "expectedMode": "diorama",
+      "prompts": [
+        "An abstract sculpture made of glowing geometry.",
+        "发光几何构成的抽象雕塑。",
+        "A geometric exhibit in a dark gallery.",
+        "一组蓝色抽象雕塑悬浮在空中。",
+        "An abstract geometry monument with a bright core.",
+        "微缩空间中的几何展品。",
+        "A quiet abstract sculpture with intersecting axes.",
+        "黑色背景前的红色抽象雕塑。",
+        "A luminous geometric exhibit with a central sphere.",
+        "抽象雕塑由球体和细长轴线组成。"
+      ]
+    }
+  ]
+}

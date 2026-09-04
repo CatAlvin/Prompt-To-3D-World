@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-to-3d-world-api"
+version = "0.1.0"
+description = "Prompt compiler and scene persistence API for Prompt-To-3D-World"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.14,<2",
+  "asyncmy>=0.2.10,<1",
+  "fastapi>=0.115,<1",
+  "httpx>=0.28,<1",
+  "jsonschema>=4.23,<5",
+  "openai>=1.68,<3",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.8,<3",
+  "PyMySQL>=1.1,<2",
+  "SQLAlchemy>=2.0.38,<3",
+  "uvicorn[standard]>=0.34,<1"
+]
+
+[project.optional-dependencies]
+dev = [
+  "aiosqlite>=0.21,<1",
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.25,<1",
+  "pytest-cov>=6,<8"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-q --disable-warnings -p no:cacheprovider"
+
+[tool.coverage.run]
+source = ["app"]
+branch = true

@@ -1,0 +1,372 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-to-3d-world.local/schemas/scene-1.0.0.json",
+  "title": "Prompt To 3D World Scene",
+  "description": "The trusted, declarative scene contract shared by the API and renderer.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "title",
+    "seed",
+    "units",
+    "environment",
+    "camera",
+    "nodes",
+    "metadata",
+    "extensions"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0.0" },
+    "id": { "$ref": "#/$defs/id" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "seed": { "type": "integer", "minimum": 0, "maximum": 2147483647 },
+    "units": { "type": "string", "const": "meters" },
+    "environment": { "$ref": "#/$defs/environment" },
+    "camera": { "$ref": "#/$defs/camera" },
+    "nodes": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 250,
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/primitiveNode" },
+          { "$ref": "#/$defs/textNode" },
+          { "$ref": "#/$defs/lightNode" },
+          { "$ref": "#/$defs/groupNode" }
+        ]
+      }
+    },
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {}
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{2,63}$"
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"
+    },
+    "vector3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "number", "minimum": -1000, "maximum": 1000 }
+    },
+    "rotation3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "number", "minimum": -6.283186, "maximum": 6.283186 }
+    },
+    "scale3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "number", "minimum": 0.01, "maximum": 200 }
+    },
+    "transform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["position", "rotation", "scale"],
+      "properties": {
+        "position": { "$ref": "#/$defs/vector3" },
+        "rotation": { "$ref": "#/$defs/rotation3" },
+        "scale": { "$ref": "#/$defs/scale3" }
+      }
+    },
+    "semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "tags"],
+      "properties": {
+        "category": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "tags": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 32 }
+        }
+      }
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "color",
+        "roughness",
+        "metalness",
+        "opacity",
+        "transparent",
+        "emissive",
+        "emissiveIntensity"
+      ],
+      "properties": {
+        "type": { "type": "string", "const": "standard" },
+        "color": { "$ref": "#/$defs/color" },
+        "roughness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "metalness": { "type": "number", "minimum": 0, "maximum": 1 },
+        "opacity": { "type": "number", "minimum": 0.05, "maximum": 1 },
+        "transparent": { "type": "boolean" },
+        "emissive": {
+          "oneOf": [
+            { "$ref": "#/$defs/color" },
+            { "type": "null" }
+          ]
+        },
+        "emissiveIntensity": { "type": "number", "minimum": 0, "maximum": 12 }
+      }
+    },
+    "collision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": { "type": "string", "enum": ["none", "ground", "solid"] }
+      }
+    },
+    "primitiveNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "subtype",
+        "parentId",
+        "transform",
+        "material",
+        "semantics",
+        "collision"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": { "type": "string", "const": "primitive" },
+        "subtype": { "type": "string", "enum": ["box", "plane", "sphere", "cylinder"] },
+        "parentId": {
+          "oneOf": [
+            { "$ref": "#/$defs/id" },
+            { "type": "null" }
+          ]
+        },
+        "transform": { "$ref": "#/$defs/transform" },
+        "material": { "$ref": "#/$defs/material" },
+        "semantics": { "$ref": "#/$defs/semantics" },
+        "collision": { "$ref": "#/$defs/collision" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "textNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "subtype",
+        "parentId",
+        "transform",
+        "text",
+        "material",
+        "semantics"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": { "type": "string", "const": "text" },
+        "subtype": { "type": "string", "const": "label" },
+        "parentId": {
+          "oneOf": [
+            { "$ref": "#/$defs/id" },
+            { "type": "null" }
+          ]
+        },
+        "transform": { "$ref": "#/$defs/transform" },
+        "text": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "fontSize", "align"],
+          "properties": {
+            "value": { "type": "string", "minLength": 1, "maxLength": 40 },
+            "fontSize": { "type": "number", "minimum": 0.12, "maximum": 3 },
+            "align": { "type": "string", "enum": ["left", "center", "right"] }
+          }
+        },
+        "material": { "$ref": "#/$defs/material" },
+        "semantics": { "$ref": "#/$defs/semantics" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "lightNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "subtype",
+        "parentId",
+        "transform",
+        "light",
+        "semantics"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": { "type": "string", "const": "light" },
+        "subtype": { "type": "string", "enum": ["ambient", "directional", "point", "spot"] },
+        "parentId": {
+          "oneOf": [
+            { "$ref": "#/$defs/id" },
+            { "type": "null" }
+          ]
+        },
+        "transform": { "$ref": "#/$defs/transform" },
+        "light": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["color", "intensity", "range", "decay", "castShadow"],
+          "properties": {
+            "color": { "$ref": "#/$defs/color" },
+            "intensity": { "type": "number", "minimum": 0, "maximum": 80 },
+            "range": { "type": "number", "minimum": 0, "maximum": 200 },
+            "decay": { "type": "number", "minimum": 0, "maximum": 2 },
+            "castShadow": { "type": "boolean" }
+          }
+        },
+        "semantics": { "$ref": "#/$defs/semantics" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "groupNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "subtype", "parentId", "transform", "semantics"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "kind": { "type": "string", "const": "group" },
+        "subtype": { "type": "string", "const": "group" },
+        "parentId": {
+          "oneOf": [
+            { "$ref": "#/$defs/id" },
+            { "type": "null" }
+          ]
+        },
+        "transform": { "$ref": "#/$defs/transform" },
+        "semantics": { "$ref": "#/$defs/semantics" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entityId", "origin", "capabilityId", "reason", "confidence", "userRemovable"],
+      "properties": {
+        "entityId": {
+          "oneOf": [
+            { "$ref": "#/$defs/id" },
+            { "type": "null" }
+          ]
+        },
+        "origin": { "type": "string", "enum": ["prompt", "structural", "style", "system", "legacy"] },
+        "capabilityId": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "userRemovable": { "type": "boolean" }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sky",
+        "background",
+        "fog",
+        "ambientLight",
+        "toneMapping",
+        "exposure",
+        "postprocessing"
+      ],
+      "properties": {
+        "sky": { "type": "string", "enum": ["night", "day", "sunrise", "sunset", "overcast", "indoor", "custom"] },
+        "background": { "$ref": "#/$defs/color" },
+        "fog": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "color", "density", "near", "far"],
+          "properties": {
+            "type": { "type": "string", "enum": ["none", "linear", "exponential"] },
+            "color": { "$ref": "#/$defs/color" },
+            "density": { "type": "number", "minimum": 0, "maximum": 0.2 },
+            "near": { "type": "number", "minimum": 0.1, "maximum": 500 },
+            "far": { "type": "number", "minimum": 1, "maximum": 1000 }
+          }
+        },
+        "ambientLight": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["color", "intensity"],
+          "properties": {
+            "color": { "$ref": "#/$defs/color" },
+            "intensity": { "type": "number", "minimum": 0, "maximum": 4 }
+          }
+        },
+        "toneMapping": { "type": "string", "enum": ["acesFilmic", "linear", "reinhard", "cineon"] },
+        "exposure": { "type": "number", "minimum": 0.2, "maximum": 3 },
+        "postprocessing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["bloom"],
+          "properties": {
+            "bloom": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["enabled", "intensity", "threshold"],
+              "properties": {
+                "enabled": { "type": "boolean" },
+                "intensity": { "type": "number", "minimum": 0, "maximum": 3 },
+                "threshold": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "position", "lookAt", "fov", "near", "far", "movement"],
+      "properties": {
+        "mode": { "type": "string", "const": "firstPerson" },
+        "position": { "$ref": "#/$defs/vector3" },
+        "lookAt": { "$ref": "#/$defs/vector3" },
+        "fov": { "type": "number", "minimum": 40, "maximum": 90 },
+        "near": { "type": "number", "minimum": 0.01, "maximum": 1 },
+        "far": { "type": "number", "minimum": 20, "maximum": 1000 },
+        "movement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["speed", "sprintMultiplier", "eyeHeight"],
+          "properties": {
+            "speed": { "type": "number", "minimum": 1, "maximum": 12 },
+            "sprintMultiplier": { "type": "number", "minimum": 1, "maximum": 3 },
+            "eyeHeight": { "type": "number", "minimum": 1, "maximum": 2.2 },
+            "baseElevation": { "type": "number", "minimum": -10, "maximum": 40 }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generator", "promptLanguage"],
+      "properties": {
+        "generator": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "promptLanguage": { "type": "string", "enum": ["zh", "en", "mixed", "unknown"] }
+      }
+    }
+  }
+}

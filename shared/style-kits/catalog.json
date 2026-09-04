@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "items": [
+    {
+      "id": "cyberpunk_tokyo_v1",
+      "name": "东京霓雨",
+      "description": "湿润路面、密集招牌与克制的冷暖霓虹对比。",
+      "archetypes": ["urban_alley", "historic_town"],
+      "palette": {
+        "background": "#070a12",
+        "fog": "#11182a",
+        "ground": "#151f2a",
+        "primary": "#243342",
+        "secondary": "#3b202d",
+        "accent": "#d73770",
+        "accentAlt": "#32c9cf",
+        "warm": "#ef8a58"
+      },
+      "materialSet": "wet_city_v1",
+      "lightingRig": "neon_alley_v1",
+      "quality": {
+        "draft": { "detailBudget": 24, "shadowLights": 0, "bloom": false },
+        "balanced": { "detailBudget": 48, "shadowLights": 1, "bloom": true },
+        "quality": { "detailBudget": 72, "shadowLights": 2, "bloom": true }
+      }
+    },
+    {
+      "id": "cozy_lowpoly_v1",
+      "name": "暖木低模",
+      "description": "低多边形体块、暖木材质与柔和室内照明。",
+      "archetypes": ["cozy_room", "historic_town"],
+      "palette": {
+        "background": "#1a1618",
+        "fog": "#2b2424",
+        "ground": "#6b4f3c",
+        "primary": "#a87552",
+        "secondary": "#725144",
+        "accent": "#dd7857",
+        "accentAlt": "#8ebf9c",
+        "warm": "#ffd29b"
+      },
+      "materialSet": "warm_lowpoly_v1",
+      "lightingRig": "cozy_room_v1",
+      "quality": {
+        "draft": { "detailBudget": 18, "shadowLights": 0, "bloom": false },
+        "balanced": { "detailBudget": 36, "shadowLights": 1, "bloom": false },
+        "quality": { "detailBudget": 54, "shadowLights": 2, "bloom": true }
+      }
+    },
+    {
+      "id": "misty_nature_v1",
+      "name": "雾林石径",
+      "description": "岩石、植被簇、层叠薄雾与自然冷色光。",
+      "archetypes": ["misty_nature", "desert_outpost"],
+      "palette": {
+        "background": "#0e1718",
+        "fog": "#314646",
+        "ground": "#25322d",
+        "primary": "#40564a",
+        "secondary": "#6d7768",
+        "accent": "#86b49a",
+        "accentAlt": "#b8c4a5",
+        "warm": "#d2a96f"
+      },
+      "materialSet": "misty_nature_v1",
+      "lightingRig": "overcast_forest_v1",
+      "quality": {
+        "draft": { "detailBudget": 20, "shadowLights": 0, "bloom": false },
+        "balanced": { "detailBudget": 44, "shadowLights": 1, "bloom": false },
+        "quality": { "detailBudget": 68, "shadowLights": 1, "bloom": true }
+      }
+    },
+    {
+      "id": "lunar_research_v1",
+      "name": "轨道晨光",
+      "description": "冷白科研舱、钴蓝陨坑、低角度金色日光与无植被月壤。",
+      "archetypes": ["lunar_station"],
+      "palette": {
+        "background": "#11172b",
+        "fog": "#60799d",
+        "ground": "#717985",
+        "primary": "#e7edf2",
+        "secondary": "#8c99a8",
+        "accent": "#3298e8",
+        "accentAlt": "#8ed8ff",
+        "warm": "#ffb36b"
+      },
+      "materialSet": "lunar_composite_v1",
+      "lightingRig": "lunar_sunrise_v1",
+      "quality": {
+        "draft": { "detailBudget": 22, "shadowLights": 0, "bloom": false },
+        "balanced": { "detailBudget": 48, "shadowLights": 1, "bloom": true },
+        "quality": { "detailBudget": 72, "shadowLights": 2, "bloom": true }
+      }
+    }
+  ]
+}
